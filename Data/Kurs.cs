@@ -10,6 +10,6 @@ namespace efcoreApp.Data
     {
         [Key]
         public int KursId { get; set; }
-        public int Baslik { get; set; }
+        public string? Baslik { get; set; }
     }
 }
