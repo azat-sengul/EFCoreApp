@@ -1,0 +1,37 @@
+@model IEnumerable<Ogrenci>
+
+<h2>Öğrenci Listesi</h2>
+<hr>
+<a href="/Ogrenci/Create" class="btn btn-primary mb-3" >Öğrenci Ekle</a>
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th style="width: 200px;">@Html.DisplayNameFor(m => m.OgrenciId)</th> <!--Bunun yerine direk olarak da yazabiliriz.-->
+            <th>Öğrenci Adı</th>
+            <th>Öğrenci Soyadı</th>
+            <th style="width: 200px;">İşlemler</th>
+        </tr>
+    </thead>
+
+ 
+
+    <tbody >
+
+        @foreach (var ogrenci in Model)
+        {
+         <tr>
+            <td>@ogrenci.OgrenciId</td>
+            <td>@ogrenci.OgrenciAdi</td>
+            <td>@ogrenci.OgrenciSoyadi</td>
+            <td>
+                <a href="" class="btn btn-primary" >Details</a>
+                <a href="" class="btn btn-danger" >Delete</a>
+            </td>
+            
+         </tr>
+        }
+
+    </tbody>
+        
+
+</table>
