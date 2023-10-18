@@ -83,9 +83,37 @@ namespace efcoreApp.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(model);
-            
+            return View(model);  
            
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var ogr = await _context.Ogrenciler.FindAsync(id);
+
+            return View(ogr);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(int id, Ogrenci model)
+        {
+            if(id != model.OgrenciId)
+            {
+                return NotFound();
+            }
+
+            var ogr = await _context.Ogrenciler.FindAsync(id);
+
+            _context.Ogrenciler.Remove(ogr);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index");
+            
+
         }
 
         

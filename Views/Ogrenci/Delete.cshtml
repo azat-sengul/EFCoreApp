@@ -1,0 +1,13 @@
+@model Ogrenci
+
+<p>
+    @Model.OgrenciAdi adlı öğrenciyi sistemden silmek istediğinize emin misiniz?  
+</p>
+<form asp-action="Delete" method="post">
+    
+    <input type="hidden" asp-for="@Model.OgrenciId">
+    <button type="submit" class="btn btn-danger" >Sil</button>
+    <a href="/Ogrenci/Index" class="btn btn-secondary" >Vazgeç</a>
+
+</form>
+
