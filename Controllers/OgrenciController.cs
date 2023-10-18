@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using efcoreApp.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace efcoreApp.Controllers
 {
@@ -37,6 +38,59 @@ namespace efcoreApp.Controllers
 
         }
 
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var ogr = await _context.Ogrenciler.FindAsync(id);
+
+            return View(ogr);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, Ogrenci model)
+        {
+            
+            if(id != model.OgrenciId){
+
+                return NotFound();
+
+            }
+
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(model);
+                    await _context.SaveChangesAsync();
+                }
+
+                catch(Exception)
+                {
+                    if(!_context.Ogrenciler.Any(o => o.OgrenciId == model.OgrenciId))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+
+                return RedirectToAction("Index");
+            }
+
+            return View(model);
+            
+           
+        }
+
+        
+
+       
     
     }
     
