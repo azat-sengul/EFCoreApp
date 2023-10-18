@@ -23,8 +23,8 @@ namespace efcoreApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Baslik")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Baslik")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("KursId");
 

@@ -11,8 +11,8 @@ using efcoreApp.Data;
 namespace efcoreApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231017180733_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20231018165556_DbCreate")]
+    partial class DbCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,8 +26,8 @@ namespace efcoreApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Baslik")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("Baslik")
+                        .HasColumnType("TEXT");
 
                     b.HasKey("KursId");
 
