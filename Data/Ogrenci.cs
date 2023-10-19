@@ -24,8 +24,11 @@ namespace efcoreApp.Data
                 return this.OgrenciAdi + " " + this.OgrenciSoyadi;
             }
         }
-
         public string? Eposta { get; set; }
         public string? Telefon { get; set; }
+
+        public ICollection<KursKayit> KursKayitlari {get; set;} = new List<KursKayit>(); // Bu satırı her bir öğrencinin kurs kayıt bilgilerine de getirecek
+
+
     }
 }

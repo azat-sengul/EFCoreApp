@@ -45,7 +45,11 @@ namespace efcoreApp.Controllers
                 return NotFound();
             }
 
-            var ogr = await _context.Ogrenciler.FindAsync(id);
+            var ogr = await _context
+            .Ogrenciler
+            .Include(o => o.KursKayitlari) //Bu include satırı modelde oluşturalan ICollection list join etmesi için
+            .ThenInclude(o => o.Kurs) // Bu include Kurskayit tablosundan  Kurs modeline de erişmesi için kullanılır. Farklı bir model geçildiği için then Include kullanılır
+            .FirstOrDefaultAsync(o => o.OgrenciId == id); // FindAysnc include üzerinden çalışmaz. Bu yüzden firstordefault kullanıldı.
 
             return View(ogr);
         }

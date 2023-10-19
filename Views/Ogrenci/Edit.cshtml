@@ -1,28 +1,51 @@
 @model Ogrenci
-<form asp-controller="Ogrenci" asp-action="Edit" method="post">
-    <input type="hidden" asp-for="OgrenciId">
-    <div class="mb-3">
-        <label asp-for="OgrenciAdi" class="form-label" >Öğrenci Adı</label>
-        <input asp-for="OgrenciAdi" class="form-control" >
-    </div>
-    <div>
-        <label asp-for="OgrenciSoyadi" class="form-label" >Öğrenci Soyadı</label>
-        <input asp-for="OgrenciSoyadi" class="form-control" >
+<h4>Öğrenci Güncelleme</h4> 
+<hr>
+<div class="row">
+    <div class="col-8">
+
+        <form asp-controller="Ogrenci" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="OgrenciId">
+            <div class="mb-3">
+                <label asp-for="OgrenciAdi" class="form-label" >Öğrenci Adı</label>
+                <input asp-for="OgrenciAdi" class="form-control" >
+            </div>
+            <div>
+                <label asp-for="OgrenciSoyadi" class="form-label" >Öğrenci Soyadı</label>
+                <input asp-for="OgrenciSoyadi" class="form-control" >
+            </div>
+        
+            <div>
+                <label asp-for="Eposta" class="form-label" >E-Posta</label>
+                <input asp-for="Eposta" class="form-control" >
+            </div>
+        
+            <div>
+                <label asp-for="Telefon" class="form-label" >Telefon</label>
+                <input asp-for="Telefon" class="form-control" >
+            </div>
+        
+            <button type="submit" class="btn btn-primary mt-3 mb-3">Kaydet</button>
+        
+        </form>
+            
     </div>
 
-    <div>
-        <label asp-for="Eposta" class="form-label" >E-Posta</label>
-        <input asp-for="Eposta" class="form-control" >
+    <div class="col-4">
+        <h4>Kurs Listesi</h4>
+        <hr>
+
+        <ul>
+            @foreach (var item in @Model.KursKayitlari)
+            {
+                <li>@item.Kurs.Baslik</li>
+            }
+        </ul>
+
     </div>
 
-    <div>
-        <label asp-for="Telefon" class="form-label" >Telefon</label>
-        <input asp-for="Telefon" class="form-control" >
-    </div>
+</div>
 
-    <button type="submit" class="btn btn-primary mt-3 mb-3">Kaydet</button>
 
-</form>
-    
 
   
