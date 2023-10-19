@@ -11,6 +11,7 @@
             <th>ID</th>
             <th>Adı </th>
             <th>Soyadı</th>
+            <th>Başlama Tarihi</th>
             <th>İşlemler</th>
         </tr>
     </thead>
@@ -24,6 +25,7 @@
                 <td>@item.OgretmenId</td>
                 <td>@item.OgretmenAdi</td>
                 <td>@item.OgretmenSoyadi</td>
+                <td>@Html.DisplayFor(modelItem => item.BaslamaTarihi)</td> <!--Tarih gösterme formatı-->
                 <td>
                     <a asp-controller="Ogretmen" asp-action="Edit" asp-route-id="@item.OgretmenId" class="btn btn-primary" >Edit</a>
                     <a asp-controller="Ogretmen" asp-action="Delete" asp-route-id="@item.OgretmenId"class="btn btn-danger" >Delete</a>

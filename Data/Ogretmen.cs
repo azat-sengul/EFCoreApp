@@ -13,6 +13,8 @@ namespace efcoreApp.Data
         public string? Eposta { get; set; }
         public string? Telefon { get; set; }
 
+        [DataType(DataType.Date)] //sadece tarih bilgisini alır
+        [DisplayFormat(DataFormatString ="{0:dd-MM-yyyy}", ApplyFormatInEditMode =true)] // bilgi görüntüleme şekli
         public DateTime BaslamaTarihi { get; set; }
 
         //Bir öğretmen birden fazla kursta da ders verebilir. Bunun için;
