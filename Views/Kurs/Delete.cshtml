@@ -1,0 +1,15 @@
+@model Kurs
+
+<p>
+   <b> @Model.Baslik </b> isimli kursu silmek isteğinize emin misiniz?
+
+    <form asp-action="Delete" method="post">
+
+        <input type="hidden" asp-for="@Model.KursId">
+
+        <button type="submit" class="btn btn-danger" >Sil</button>
+        <a href="/Kurs/Index" class="btn btn-secondary" >Vazgeç</a>
+
+    </form>
+
+</p>

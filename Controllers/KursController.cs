@@ -62,5 +62,34 @@ public class KursController : Controller
 
     }
 
+    public async Task<IActionResult> Delete(int? id)
+    {
+        if(id == null)
+        {
+            return NotFound();
+        }
+
+        var kurs = await _context.Kurslar.FindAsync(id);
+
+        return View(kurs);
+
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> Delete(int id, Kurs model)
+    {
+        if(id != model.KursId)
+        {
+            return NotFound();
+        }
+
+        var kurs = await _context.Kurslar.FindAsync(id);
+        _context.Kurslar.Remove(kurs);
+        await _context.SaveChangesAsync();
+
+        return RedirectToAction("Index");
+    }
+
 
 }
