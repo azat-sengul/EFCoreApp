@@ -35,8 +35,32 @@ public class KursController : Controller
     }
 
 
+    public async Task<IActionResult> Edit(int? id)
+    {
+        if(id == null)
+        {
+            return NotFound();
+        }
+
+        var kurs = await _context.Kurslar.FindAsync(id);
+        
+        return View(kurs);
+    }
 
 
+    [HttpPost]
+    public async Task<IActionResult> Edit(int id, Kurs model)
+    {
+        if(id != model.KursId)
+        {
+            return NotFound();
+        }
+
+         _context.Update(model);
+        await _context.SaveChangesAsync();
+        return RedirectToAction("Index");
+
+    }
 
 
 }
