@@ -12,7 +12,15 @@ namespace efcoreApp.Data
         public int KursId { get; set; }
         public string? Baslik { get; set; }
 
+
+        public int? OgretmenId { get; set; } // Her kursa bir öğretmen atadık
+
+        public Ogretmen Ogretmen { get; set; } = null!; //Bir kursun bir öğretmeni olacak 
+
+
         public ICollection<KursKayit> KursKayitlari {get; set;} = new List<KursKayit>(); // Bu satırı her bir kursa  kayıtlı öğrencilerin bilgilerine de getirecek
+
+
         
     }
 }
