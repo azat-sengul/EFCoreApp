@@ -1,0 +1,38 @@
+@model IEnumerable<Ogretmen>
+
+<h4>Öğretmenler Liste</h4>
+<hr>
+
+<a href="/Ogretmen/Create" class="btn btn-info" > Yeni Kayıt </a>
+
+<table class="table table-bordered text-center mt-3">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Adı </th>
+            <th>Soyadı</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.OgretmenId</td>
+                <td>@item.OgretmenAdi</td>
+                <td>@item.OgretmenSoyadi</td>
+                <td>
+                    <a asp-controller="Ogretmen" asp-action="Edit" asp-route-id="@item.OgretmenId" class="btn btn-primary" >Edit</a>
+                    <a asp-controller="Ogretmen" asp-action="Delete" asp-route-id="@item.OgretmenId"class="btn btn-danger" >Delete</a>
+                </td>
+            </tr>
+        }
+
+
+
+    </tbody>
+
+</table>

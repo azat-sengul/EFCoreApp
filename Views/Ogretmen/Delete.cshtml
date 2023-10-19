@@ -1,0 +1,18 @@
+@model Ogretmen
+
+<h4>Öğretmen Sil</h4>
+<hr>
+
+<p>
+    <b>@Model.OgretmenAdi</b>  isim öğretmeni silmek istediğinize emin misiniz?
+    
+    <form asp-action="Delete"  method="post">
+
+        <input type="hidden" asp-for="OgretmenId">
+
+        <button type="submit" class="btn btn-danger" >Sil</button>
+        <a href="/Ogretmen/Index" class="btn btn-secondary" >Vazgeç</a>
+
+    </form>
+
+</p>

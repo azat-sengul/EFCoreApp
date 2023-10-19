@@ -1,18 +1,18 @@
-@model Ogrenci
-<h4>Öğrenci Güncelleme</h4> 
+@model Ogretmen
+<h4>Öğretmen Güncelleme</h4> 
 <hr>
 <div class="row">
     <div class="col-8">
 
-        <form asp-controller="Ogrenci" asp-action="Edit" method="post">
-            <input type="hidden" asp-for="OgrenciId">
+        <form asp-controller="Ogretmen" asp-action="Edit" method="post">
+            <input type="hidden" asp-for="OgretmenId">
             <div class="mb-3">
-                <label asp-for="OgrenciAdi" class="form-label" >Öğrenci Adı</label>
-                <input asp-for="OgrenciAdi" class="form-control" >
+                <label asp-for="OgretmenAdi" class="form-label" >Öğrenci Adı</label>
+                <input asp-for="OgretmenAdi" class="form-control" >
             </div>
             <div>
-                <label asp-for="OgrenciSoyadi" class="form-label" >Öğrenci Soyadı</label>
-                <input asp-for="OgrenciSoyadi" class="form-control" >
+                <label asp-for="OgretmenSoyadi" class="form-label" >Öğrenci Soyadı</label>
+                <input asp-for="OgretmenSoyadi" class="form-control" >
             </div>
         
             <div>
@@ -29,7 +29,7 @@
         
         </form>
 
-        <a href="/Ogrenci/Index" class="btn btn-secondary" >Geri Dön</a>
+        <a href="/Ogretmen/Index" class="btn btn-secondary" >Geri Dön</a>
             
     </div>
 
@@ -38,10 +38,7 @@
         <hr>
 
         <ul>
-            @foreach (var item in @Model.KursKayitlari)
-            {
-                <li>@item.Kurs.Baslik</li>
-            }
+  
         </ul>
 
     </div>
