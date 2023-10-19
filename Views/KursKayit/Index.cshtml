@@ -1,0 +1,33 @@
+@model IEnumerable<KursKayit>
+
+<h2>Kurs Kayıt Ekranı</h2>
+
+<a href="/KursKayit/Create" class="btn btn-info" >Yeni Kayıt Ekle</a>
+
+<table class="table table-bordered text-center mt-3">
+    <thead>
+        <tr>
+            <th>Kayıt Id</th>
+            <th>Öğrenci Adı Soyadı</th>
+            <th>Kurs</th>
+            <th>Kayıt Tarihi</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+ 
+            <tr>
+                <td>@item.KayitId</td>
+                <td>@item.Ogrenci.OgrenciAdi</td>
+                <td>@item.Kurs.Baslik</td>
+                <td>@item.KayitTarihi</td>
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>

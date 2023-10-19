@@ -15,6 +15,16 @@ namespace efcoreApp.Data
 
         public string? OgrenciAdi { get; set; }
         public string? OgrenciSoyadi { get; set; }
+
+        // Öğrenci ad soyad veri tabanından gelen bilgilerle birleştirilmek istenirse
+
+        public string AdSoyad 
+        { get
+            {
+                return this.OgrenciAdi + " " + this.OgrenciSoyadi;
+            }
+        }
+
         public string? Eposta { get; set; }
         public string? Telefon { get; set; }
     }
