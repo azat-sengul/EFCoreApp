@@ -10,6 +10,13 @@ namespace efcoreApp.Data
         public string? OgretmenAdi { get; set; }
         public string? OgretmenSoyadi { get; set; }
 
+        public string? AdSoyad { get
+            {
+               return this.OgretmenAdi + " " + this.OgretmenSoyadi;
+            }
+        
+         }
+
         public string? Eposta { get; set; }
         public string? Telefon { get; set; }
 
