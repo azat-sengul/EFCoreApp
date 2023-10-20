@@ -74,8 +74,8 @@ public class KursController : Controller
         if(ModelState.IsValid)
         {
 
-             _context.Update(new Kurs() {KursId=model.KursId, Baslik=model.Baslik, OgretmenId=model.OgretmenId});
-            //_context.Update(model);
+            //_context.Update(new Kurs() {KursId=model.KursId, Baslik=model.Baslik, OgretmenId=model.OgretmenId});
+            _context.Update(model);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
 
