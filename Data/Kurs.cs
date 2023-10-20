@@ -10,10 +10,12 @@ namespace efcoreApp.Data
     {
         [Key]
         public int KursId { get; set; }
+
+        [Required]
         public string? Baslik { get; set; }
 
 
-        public int? OgretmenId { get; set; } // Her kursa bir öğretmen atadık
+        public int OgretmenId { get; set; } // Her kursa bir öğretmen atadık
 
         public Ogretmen Ogretmen { get; set; } = null!; //Bir kursun bir öğretmeni olacak 
 
