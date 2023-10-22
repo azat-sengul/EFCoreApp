@@ -31,15 +31,11 @@ public class KursController : Controller
     [HttpPost]
     public async Task<IActionResult> Create(Kurs model)
     {
-        if(ModelState.IsValid)
-        {
+
             _context.Kurslar.Add(model);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
-        }
-
-        ViewBag.Ogretmenler = new SelectList( await _context.Ogretmenler.ToListAsync(),"OgretmenId", "AdSoyad");
-        return View(model);
+       
 
     }
 
@@ -71,19 +67,17 @@ public class KursController : Controller
             return NotFound();
         }
 
-        if(ModelState.IsValid)
-        {
+
 
             //_context.Update(new Kurs() {KursId=model.KursId, Baslik=model.Baslik, OgretmenId=model.OgretmenId});
             _context.Update(model);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
 
-        }
+        
 
 
-        ViewBag.Ogretmenler = new SelectList( await _context.Ogretmenler.ToListAsync(),"OgretmenId", "AdSoyad");
-        return View(model);
+
 
     }
 

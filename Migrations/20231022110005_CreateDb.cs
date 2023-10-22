@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace efcoreApp.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateDB : Migration
+    public partial class CreateDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -51,7 +51,7 @@ namespace efcoreApp.Migrations
                     KursId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Baslik = table.Column<string>(type: "TEXT", nullable: false),
-                    OgretmenId = table.Column<int>(type: "INTEGER", nullable: false)
+                    OgretmenId = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -60,8 +60,7 @@ namespace efcoreApp.Migrations
                         name: "FK_Kurslar_Ogretmenler_OgretmenId",
                         column: x => x.OgretmenId,
                         principalTable: "Ogretmenler",
-                        principalColumn: "OgretmenId",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "OgretmenId");
                 });
 
             migrationBuilder.CreateTable(

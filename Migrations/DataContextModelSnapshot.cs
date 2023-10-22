@@ -27,7 +27,7 @@ namespace efcoreApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("OgretmenId")
+                    b.Property<int?>("OgretmenId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("KursId");
@@ -114,9 +114,7 @@ namespace efcoreApp.Migrations
                 {
                     b.HasOne("efcoreApp.Data.Ogretmen", "Ogretmen")
                         .WithMany("Kurslar")
-                        .HasForeignKey("OgretmenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OgretmenId");
 
                     b.Navigation("Ogretmen");
                 });

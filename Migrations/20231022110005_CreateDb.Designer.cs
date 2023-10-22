@@ -11,8 +11,8 @@ using efcoreApp.Data;
 namespace efcoreApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20231020150049_CreateDB")]
-    partial class CreateDB
+    [Migration("20231022110005_CreateDb")]
+    partial class CreateDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace efcoreApp.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("OgretmenId")
+                    b.Property<int?>("OgretmenId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("KursId");
@@ -117,9 +117,7 @@ namespace efcoreApp.Migrations
                 {
                     b.HasOne("efcoreApp.Data.Ogretmen", "Ogretmen")
                         .WithMany("Kurslar")
-                        .HasForeignKey("OgretmenId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("OgretmenId");
 
                     b.Navigation("Ogretmen");
                 });
